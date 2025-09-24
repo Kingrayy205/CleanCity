@@ -9,7 +9,7 @@ a {
 }
 
 .carousel-item {
-    height: 250px;
+    height: fit-content;
 }
 
 .section {
@@ -37,7 +37,7 @@ a {
   height: 20px;
   width: 20px;
   position: relative;
-  background-color: blue;
+  background-color: rgb(48, 48, 253);
   display: block;
   border-style: solid;
   border-color: rgba(247, 244, 244, 0.904);
@@ -61,7 +61,7 @@ a {
   height: 20px;
   width: 20px;
   position: relative;
-  background-color: blue;
+  background-color: rgb(48, 48, 253);
   display: block;
   border-style: solid;
   border-color: rgba(247, 244, 244, 0.904);
