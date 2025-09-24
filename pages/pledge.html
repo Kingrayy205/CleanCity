@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCity+</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../design/style.css">
+    <script src="https://kit.fontawesome.com/67d0c5075e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fs-2 fw-semibold text-white" href="#">CleanCity+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto gap-4">
+            <li class="nav-item"><a class="nav-link text-light" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../pages/wastecategories.html">Waste Categories</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../pages/recyclingtracker.html">Recycling Tracker</a></li>
+            <li class="nav-item"><a class="nav-link active text-light" href="../pages/pledge.html">Pledge</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <header class="text-center py-5 text-white bg-primary mb-5">
+    <div class="container">
+      <h1 class="fw-bold py-2">Make Your Pledge</h1>
+      <p class="lead py-2">Commit to small actions for a cleaner city 🌱</p>
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <div class="dropball"> </div>
+        <div class="dropball2"> </div>
+        <div class="dropball"> </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section class="container mb-5">
+    <form id="pledgeForm" class="row g-3">
+      <div class="col-12">
+        <label for="pledgeInput" class="form-label text-primary fw-bold fs-4">Your Pledge</label>
+        <input type="text" id="pledgeInput" class="form-control p-3 mb-2" placeholder="e.g. Recycle 5 bottles weekly" required>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary">Submit Pledge</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="container mb-5 text-center text-primary">
+    <h3>Total Pledges: </h3>
+    <h2 class="badge bg-primary fs-5" id="pledgeCounter">0</h2>
+  </section>
+
+  <section class="container mb-5">
+    <h3 class="mb-3 text-primary fw-bold">Community Pledges</h3>
+    <ul class="list-group" id="pledgeList"></ul>
+  </section>
+
+  
+  <div id="badgeAlert" class="alert alert-success text-center position-fixed bottom-0 start-50 translate-middle-x d-none" style="z-index: 1050; width: 60%;">
+
+  </div>
+
+
+
+<footer class="bg-primary text-white mt-5 py-4">
+  <div class="container py-4">
+    <div class="row">
+       
+      <div class="col-md-4 mb-3">
+        <h5>About CleanCity+</h5>
+        <p>
+          CleanCity+ is dedicated to educating people about wastes
+          and empowering communities to recycle and renew our planet.
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="../index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="../pages/wastecategories.html" class="text-white text-decoration-none">Waste Categories</a></li>
+          <li><a href="../pages/recyclingtracker.html" class="text-white text-decoration-none">Recycling Tracker</a></li>
+          <li><a href="../pages/pledge.html" class="text-white text-decoration-none">Pledge</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@cleancity.com</p>
+        <p>Phone: 0810 456 7890</p>
+        <div>
+          <a href="" class="text-white me-3 text-decoration-none"> <i class="fa-brands fa-facebook-f"></i> </a>
+          <a href="" class="text-white me-3 text-decoration-none"> <i class="fa-brands fa-twitter"></i> </a>
+          <a href="" class="text-white text-decoration-none"> <i class="fa-brands fa-instagram"></i> </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="bg-light" />
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 CleanCity+. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    
+</body>
+
+
+
+<script>
+
+    let pledges = JSON.parse(localStorage.getItem("pledges")) || [];
+    let milestones = JSON.parse(localStorage.getItem("pledgeMilestones")) || {};
+
+    const pledgeForm = document.getElementById("pledgeForm");
+    const pledgeInput = document.getElementById("pledgeInput");
+    const pledgeList = document.getElementById("pledgeList");
+    const pledgeCounter = document.getElementById("pledgeCounter");
+    const badgeAlert = document.getElementById("badgeAlert");
+
+    pledgeForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const pledge = pledgeInput.value.trim();
+      if (pledge) {
+        pledges.push(pledge);
+        savePledges();
+        render();
+        pledgeForm.reset();
+      }
+    });
+
+    function render() {
+      pledgeList.innerHTML = "";
+      pledges.forEach((p, index) => {
+        pledgeList.innerHTML += `
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            ${p}
+            <button class="btn btn-sm btn-danger" onclick="deletePledge(${index})">Delete</button>
+          </li>
+        `;
+      });
+      pledgeCounter.textContent = pledges.length;
+      checkMilestones();
+    }
+
+    function deletePledge(index) {
+      if(confirm("Are you sure you want to delete this pledge?")) {pledges.splice(index, 1);};
+      savePledges();
+      render();
+    }
+
+    function savePledges() {
+      localStorage.setItem("pledges", JSON.stringify(pledges));
+    }
+
+
+    /////Check and award milestones
+    function checkMilestones() {
+      const count = pledges.length;
+      const milestonesReached = [5, 10, 20];
+      milestonesReached.forEach(m => {
+        if (count >= m && !milestones[m]) {
+          milestones[m] = true;
+          localStorage.setItem("pledgeMilestones", JSON.stringify(milestones));
+          showBadge(m);
+        }
+      });
+    }
+
+    function showBadge(m) {
+      badgeAlert.textContent = `Congratulations! The community reached ${m} pledges`;
+      badgeAlert.classList.remove("d-none");
+      setTimeout(() => badgeAlert.classList.add("d-none"), 4000);
+    }
+
+    /////Initialize on load
+    render();
+
+</script>
+</html>

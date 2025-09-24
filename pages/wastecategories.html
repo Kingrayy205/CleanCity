@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCity+</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../design/style.css">
+    <script src="https://kit.fontawesome.com/67d0c5075e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fs-2 fw-semibold text-white" href="#">CleanCity+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto gap-4">
+            <li class="nav-item"><a class="nav-link text-light" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active text-light" href="../pages/wastecategories.html">Waste Categories</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../pages/recyclingtracker.html">Recycling Tracker</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../pages/pledge.html">Pledge</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <header class="text-center bg-primary text-light py-5 mb-5">
+    <div class="container">
+      <h1 class="fw-bold py-2">Waste Categories</h1>
+      <p class="lead py-2">Learn about different types of waste and how to dispose of them properly.</p>
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <div class="dropball"> </div>
+        <div class="dropball2"> </div>
+        <div class="dropball"> </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section class="container mb-5">
+    <div class="accordion" id="wasteAccordion">
+      
+  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPlastic">
+          <button class="accordion-button text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlastic">
+            <h4>Plastic</h4>
+          </button>
+        </h2>
+        <div id="collapsePlastic" class="accordion-collapse collapse show" data-bs-parent="#wasteAccordion">
+          <div class="accordion-body">
+            Plastics include bottles, containers, and packaging. Always check local recycling guidelines.  
+            ♻️ Tip: Rinse containers before recycling.
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOrganic">
+          <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrganic">
+            <h4>Organic</h4>
+          </button>
+        </h2>
+        <div id="collapseOrganic" class="accordion-collapse collapse" data-bs-parent="#wasteAccordion">
+          <div class="accordion-body">
+            Organic waste includes food scraps and yard trimmings.  
+            🌱 Tip: Compost organic waste to create natural fertilizer.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingEwaste">
+          <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEwaste">
+            <h4>E-Waste</h4>
+          </button>
+        </h2>
+        <div id="collapseEwaste" class="accordion-collapse collapse" data-bs-parent="#wasteAccordion">
+          <div class="accordion-body">
+            E-waste includes electronics like phones, computers, and batteries.  
+            ⚡ Tip: Drop off e-waste at certified recycling centers.
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPaper">
+          <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePaper">
+            <h3>Paper</h3>
+          </button>
+        </h2>
+        <div id="collapsePaper" class="accordion-collapse collapse" data-bs-parent="#wasteAccordion">
+          <div class="accordion-body">
+            Paper waste includes newspapers, books, and office papers.  
+            📄 Tip: Keep paper dry and separate from greasy items before recycling.
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGlass">
+          <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGlass">
+            <h4>Glass</h4>
+          </button>
+        </h2>
+        <div id="collapseGlass" class="accordion-collapse collapse" data-bs-parent="#wasteAccordion">
+          <div class="accordion-body">
+            Glass includes bottles and jars. Avoid mixing with ceramics or broken glass.  
+            🍾 Tip: Reuse jars at home before recycling.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container mb-5">
+    <div class="container py-5 text-center">
+    <h1 class="mb-4 text-primary">Did You Know? <span> <i class="fa-regular fa-face-surprise"></i> </span> </h1>
+
+    <div id="fact-box" class="card shadow-sm p-4 mx-auto mb-4" style="max-width: 600px;">
+      
+    </div>
+
+    <button class="btn btn-primary btn-lg" onclick="showRandomFact()">Get New Fact</button>
+    </div>
+  </section>
+
+
+  <footer class="bg-primary text-white mt-5 py-5">
+  <div class="container py-4">
+    <div class="row">
+       
+      <div class="col-md-4 mb-3">
+        <h5>About CleanCity+</h5>
+        <p>
+          CleanCity+ is dedicated to educating people about wastes
+          and empowering communities to recycle and renew our planet.
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="../index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="../pages/wastecategories.html" class="text-white text-decoration-none">Waste Categories</a></li>
+          <li><a href="../pages/recyclingtracker.html" class="text-white text-decoration-none">Recycling Tracker</a></li>
+          <li><a href="../pages/pledge.html" class="text-white text-decoration-none">Pledge</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@cleancity.com</p>
+        <p>Phone: 0810 456 7890</p>
+        <div>
+          <a href="" class="text-white me-3"> <i class="fa-brands fa-facebook-f"></i> </a>
+          <a href="" class="text-white me-3"> <i class="fa-brands fa-twitter"></i> </a>
+          <a href="" class="text-white"> <i class="fa-brands fa-instagram"></i> </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="bg-light" />
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 CleanCity+. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    
+    
+</body>
+
+<script src="../script/index.js"></script>
+</html>
+
+

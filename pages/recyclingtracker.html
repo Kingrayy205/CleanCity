@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCity+</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../design/style.css">
+    <script src="https://kit.fontawesome.com/67d0c5075e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fs-2 fw-semibold text-white" href="#">CleanCity+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto gap-4">
+            <li class="nav-item"><a class="nav-link text-light" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../pages/wastecategories.html">Waste Categories</a></li>
+            <li class="nav-item"><a class="nav-link active text-light" href="../pages/recyclingtracker.html">Recycling Tracker</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../pages/pledge.html">Pledge</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+     
+  <header class="text-center py-5 bg-primary text-light mb-5">
+    <div class="container">
+      <h1 class="fw-bold py-2">Recycling Tracker</h1>
+      <p class="lead py-2">Log and track your recycling activities</p>
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <div class="dropball"> </div>
+        <div class="dropball2"> </div>
+        <div class="dropball"> </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section class="container mb-5">
+    <form id="recycleForm" class="row g-3 text-primary">
+      <div class="col-md-6">
+        <label for="category" class="form-label"> <h5>Category</h5> </label>
+        <select id="category" class="form-select" required>
+          <optgroup>Select Category</optgroup>
+          <option value="Plastic">Plastic</option>
+          <option value="Organic">Organic</option>
+          <option value="E-Waste">E-Waste</option>
+          <option value="Paper">Paper</option>
+          <option value="Glass">Glass</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="quantity" class="form-label"> <h5>Quantity</h5> </label>
+        <input type="number" id="quantity" class="form-control primary" placeholder="Enter quantity" required>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary mt-2">Add Entry</button>
+      </div>
+    </form>
+  </section>
+
+
+  <section class="container mb-3">
+    <div class="row g-3 align-items-center">
+      <div class="col-md-6">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search logs by category or quantity">
+      </div>
+      <div class="col-md-6 text-end">
+        <select id="sortSelect" class="form-select w-auto d-inline-block">
+          <option value="category">Category</option>
+          <option value="quantity">Quantity</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="container my-5 text-primary">
+    <h3 class="mb-3">Recycling Logs</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle text-center" id="logsTable">
+        <thead class="table-light">
+          <tr>
+            <th class="text-primary">Category</th>
+            <th class="text-primary">Quantity</th>
+            <th class="text-primary">Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  
+  <section class="container mb-5">
+    <h3 class="mb-3 text-primary">Progress by Category</h3>
+    <div id="progressBars"></div>
+  </section>
+
+  <!-- Badge Notification -->
+  <div id="badgeAlert" class="alert alert-success text-center position-fixed bottom-0 start-50 translate-middle-x d-none" style="z-index: 1050; width: 50%;">
+    
+  </div>
+
+
+<footer class="bg-primary text-white mt-5 py-4">
+  <div class="container py-4">
+    <div class="row">
+       
+      <div class="col-md-4 mb-3">
+        <h5>About CleanCity+</h5>
+        <p>
+          CleanCity+ is dedicated to educating people about wastes
+          and empowering communities to recycle and renew our planet.
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="../index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="../pages/wastecategories.html" class="text-white text-decoration-none">Waste Categories</a></li>
+          <li><a href="../pages/recyclingtracker.html" class="text-white text-decoration-none">Recycling Tracker</a></li>
+          <li><a href="../pages/pledge.html" class="text-white text-decoration-none">Pledge</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@cleancity.com</p>
+        <p>Phone: 0810 456 7890</p>
+        <div>
+          <a href="" class="text-white me-3 text-decoration-none"> <i class="fa-brands fa-facebook-f"></i> </a>
+          <a href="" class="text-white me-3 text-decoration-none"> <i class="fa-brands fa-twitter"></i> </a>
+          <a href="" class="text-white text-decoration-none"> <i class="fa-brands fa-instagram"></i> </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="bg-light" />
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 CleanCity+. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    
+</body>
+
+<script src="../script/index.js"></script>
+</html>
